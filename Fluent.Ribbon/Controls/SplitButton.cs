@@ -540,11 +540,11 @@ namespace Fluent
                 this.ApplyTemplate();
             }
 
-            yield return new KeyTipInformation(this.KeyTip + "A", this.button, hide)
+            yield return new KeyTipInformation(this.KeyTip, this.button, hide)
             {
                 VisualTarget = this
             };
-            yield return new KeyTipInformation(this.KeyTip + "B", this, hide);
+            //yield return new KeyTipInformation(this.KeyTip + "B", this, hide);
         }
 
         #endregion
