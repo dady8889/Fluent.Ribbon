@@ -32,7 +32,9 @@
         <Setter Property="Height"
                 Value="Auto" />
         <Setter Property="HorizontalContentAlignment"
-                Value="Left" />
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
         <Setter Property="Foreground"
                 Value="{DynamicResource Fluent.Ribbon.Brushes.LabelTextBrush}" />
         <Setter Property="Background"
@@ -280,11 +282,11 @@
 
                         <WrapPanel x:Name="PART_UpPanel"
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                   VerticalAlignment="Stretch"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                    Width="Auto"
                                    Height="Auto"
                                    IsItemsHost="True"
-                                   Margin="4,0,4,0"
+                                   Margin="5,0,6,0"
                                    Orientation="Vertical" />
                         
                         <Grid x:Name="PART_DownGrid"
