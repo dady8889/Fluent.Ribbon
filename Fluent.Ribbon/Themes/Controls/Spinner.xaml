@@ -128,7 +128,8 @@
                                          Foreground="{TemplateBinding Foreground}"
                                          Padding="2,0,2,0"
                                          Margin="0"
-                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
                                 
                                 <Path Visibility="Collapsed"
                                       HorizontalAlignment="Left"
