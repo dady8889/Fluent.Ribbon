@@ -226,7 +226,8 @@ namespace Fluent
             var firstVisibleItem = this.FirstVisibleItem;
 
             if (e.ClickCount == 1
-                && firstVisibleItem != null)
+                && firstVisibleItem != null
+                && firstVisibleItem.IsEnabled)
             {
                 var currentSelectedItem = firstVisibleItem.TabControlParent?.SelectedItem as RibbonTabItem;
 
