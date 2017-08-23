@@ -221,10 +221,36 @@ namespace Fluent
                     return true;
                 }
 
-                element = VisualTreeHelper.GetParent(element) ?? LogicalTreeHelper.GetParent(element);
+                element = GetParent(element) ?? LogicalTreeHelper.GetParent(element);
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Returns parent of element, including hyperlinks and others
+        /// </summary>
+        private static DependencyObject GetParent(DependencyObject obj)
+        {
+            if (obj == null)
+            {
+                return null;
+            }
+
+            ContentElement ce = obj as ContentElement;
+            if (ce != null)
+            {
+                DependencyObject parent = ContentOperations.GetParent(ce);
+                if (parent != null)
+                {
+                    return parent;
+                }
+
+                FrameworkContentElement fce = ce as FrameworkContentElement;
+                return fce?.Parent;
+            }
+
+            return VisualTreeHelper.GetParent(obj);
         }
 
         /// <summary>
