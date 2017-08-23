@@ -18,7 +18,7 @@
         <Setter Property="FocusVisualStyle"
                 Value="{DynamicResource ControlStyleEmptyFocus}" />
     </Style>
-    
+
     <ControlTemplate x:Key="RibbonComboButtonControlTemplate"
                      TargetType="{x:Type Fluent:ToggleButton}">
         <Border x:Name="border"
@@ -168,8 +168,8 @@
                                           Content="{TemplateBinding SelectionBoxItem}"
                                           ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                                           ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-                                          VerticalAlignment="Center"
-                                          HorizontalAlignment="Left" />
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
                         <Image Margin="0"
                                Stretch="None"
                                x:Name="PART_SelectedImage"
@@ -188,7 +188,9 @@
                                  IsReadOnly="{TemplateBinding IsReadOnly}"                                 
                                  Background="{DynamicResource Fluent.Ribbon.Brushes.TextBox.Background}"
                                  Foreground="{TemplateBinding Foreground}"
-                                 Visibility="Hidden" />
+                                 Visibility="Hidden" 
+                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
                     </Grid>
                 </Border>
                 <Popup x:Name="PART_Popup"
