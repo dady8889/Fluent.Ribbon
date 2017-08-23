@@ -37,7 +37,7 @@
                     Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                     BorderThickness="1"
-                    CornerRadius="2"
+                    CornerRadius="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="3" />
             <TextBlock x:Name="textBlock"
@@ -174,7 +174,7 @@
                     Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                     BorderThickness="1"
-                    CornerRadius="2"
+                    CornerRadius="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="3" />
             <TextBlock x:Name="textBlock"
@@ -358,7 +358,7 @@
                             Background="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                             BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BorderBrush}"
                             BorderThickness="1"
-                            CornerRadius="2,2,1,1"
+                            CornerRadius="0"
                             Grid.ColumnSpan="1"
                             d:LayoutOverrides="Width, Height"
                             HorizontalAlignment="Stretch"
@@ -372,7 +372,7 @@
                                     Height="Auto"
                                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                                     BorderThickness="1"
-                                    CornerRadius="1" />
+                                    CornerRadius="0" />
                             <Grid Margin="1"
                                   HorizontalAlignment="Stretch"
                                   VerticalAlignment="Stretch">
@@ -506,7 +506,7 @@
                         Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                         BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                         BorderThickness="1"
-                        CornerRadius="2"
+                        CornerRadius="0"
                         Margin="0,0,-1,0" />
                 <Border x:Name="Submenu_Border"
                         HorizontalAlignment="Stretch"
@@ -516,7 +516,7 @@
                         Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                         BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                         BorderThickness="1"
-                        CornerRadius="2"
+                        CornerRadius="0"
                         Grid.Column="1" />
             </Grid>
             <TextBlock x:Name="textBlock"
@@ -594,7 +594,7 @@
                             Background="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                             BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BorderBrush}"
                             BorderThickness="1"
-                            CornerRadius="1"
+                            CornerRadius="0"
                             d:LayoutOverrides="Width, Height"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch">
@@ -607,7 +607,7 @@
                                     Height="Auto"
                                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                                     BorderThickness="1"
-                                    CornerRadius="1" />
+                                    CornerRadius="0" />
                             <Grid Margin="1"
                                   HorizontalAlignment="Stretch"
                                   VerticalAlignment="Stretch">
@@ -774,7 +774,7 @@
                     Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                     BorderThickness="1"
-                    CornerRadius="2"
+                    CornerRadius="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="3" />
             <TextBlock x:Name="textBlock"
@@ -908,7 +908,7 @@
                     Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                     BorderThickness="1"
-                    CornerRadius="2"
+                    CornerRadius="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="3" />
             <TextBlock x:Name="textBlock"
@@ -1084,7 +1084,7 @@
                             Background="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                             BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BorderBrush}"
                             BorderThickness="1"
-                            CornerRadius="2,2,1,1"
+                            CornerRadius="0"
                             Grid.ColumnSpan="1"
                             d:LayoutOverrides="Width, Height"
                             HorizontalAlignment="Stretch"
@@ -1098,7 +1098,7 @@
                                     Height="Auto"
                                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                                     BorderThickness="1"
-                                    CornerRadius="1" />
+                                    CornerRadius="0" />
                             <Grid Margin="1"
                                   HorizontalAlignment="Stretch"
                                   VerticalAlignment="Stretch">
@@ -1221,7 +1221,7 @@
                         Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                         BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                         BorderThickness="1"
-                        CornerRadius="2"
+                        CornerRadius="0"
                         Margin="0,0,-1,0" />
                 <Border x:Name="Submenu_Border"
                         HorizontalAlignment="Stretch"
@@ -1231,7 +1231,7 @@
                         Background="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.Background}"
                         BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Button.MouseOver.BorderBrush}"
                         BorderThickness="1"
-                        CornerRadius="2"
+                        CornerRadius="0"
                         Grid.Column="1" />
             </Grid>
             <TextBlock x:Name="textBlock"
@@ -1407,7 +1407,7 @@
                             Background="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                             BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BorderBrush}"
                             BorderThickness="1"
-                            CornerRadius="1"
+                            CornerRadius="0"
                             Grid.ColumnSpan="1"
                             d:LayoutOverrides="Width, Height"
                             HorizontalAlignment="Stretch"
@@ -1421,7 +1421,7 @@
                                     Height="Auto"
                                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.DropDown.BackgroundBrush}"
                                     BorderThickness="1"
-                                    CornerRadius="1" />
+                                    CornerRadius="0" />
                             <Grid Margin="1"
                                   HorizontalAlignment="Stretch"
                                   VerticalAlignment="Stretch">
