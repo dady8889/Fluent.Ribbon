@@ -82,7 +82,8 @@
             <StackPanel x:Name="stackPanel"
                         Width="Auto"
                         Orientation="Vertical"
-                        d:LayoutOverrides="Width, Height">
+                        d:LayoutOverrides="Width, Height"
+                        VerticalAlignment="Center">
                 <ContentPresenter x:Name="iconImage"
                                   HorizontalAlignment="Center"
                                   Height="32"
