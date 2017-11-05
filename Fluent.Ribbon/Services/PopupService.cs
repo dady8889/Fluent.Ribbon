@@ -7,8 +7,8 @@ namespace Fluent
     using System.Windows.Controls;
     using System.Windows.Controls.Primitives;
     using System.Windows.Input;
-    using System.Windows.Media;
     using Fluent.Extensions;
+    using Fluent.Internal;
 
     /// <summary>
     /// Dismiss popup mode
@@ -221,36 +221,10 @@ namespace Fluent
                     return true;
                 }
 
-                element = GetParent(element) ?? LogicalTreeHelper.GetParent(element);
+                element = UIHelper.GetVisualOrLogicalParent(element);
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Returns parent of element, including hyperlinks and others
-        /// </summary>
-        private static DependencyObject GetParent(DependencyObject obj)
-        {
-            if (obj == null)
-            {
-                return null;
-            }
-
-            ContentElement ce = obj as ContentElement;
-            if (ce != null)
-            {
-                DependencyObject parent = ContentOperations.GetParent(ce);
-                if (parent != null)
-                {
-                    return parent;
-                }
-
-                FrameworkContentElement fce = ce as FrameworkContentElement;
-                return fce?.Parent;
-            }
-
-            return VisualTreeHelper.GetParent(obj);
         }
 
         /// <summary>

@@ -4,7 +4,10 @@
                     xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
                     mc:Ignorable="options d">
+    <system:String x:Key="Fluent.Ribbon.AppTheme">BaseLight</system:String>
+    
     <!-- COLORS -->
 
     <!-- Base colors -->
@@ -112,6 +115,7 @@
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabItem.Foreground" Color="{StaticResource BlackColor}" options:Freeze="True" />
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabItem.BorderBrush" Color="{StaticResource Gray8}" options:Freeze="True" />
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabItem.Active.Background" Color="{StaticResource WhiteColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabItem.MouseOver.Background" Color="Transparent" options:Freeze="True" />
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabItem.Selected.Foreground" Color="{StaticResource Gray1}" options:Freeze="True" />
 
     <LinearGradientBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabItem.Contextual.Background.OpacityMask" EndPoint="0.5,1" StartPoint="0.5,0">
@@ -131,10 +135,6 @@
     <!-- Scroll-Buttons -->
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.ScrollButton.Default.BorderBrush" Color="{StaticResource Gray4}" options:Freeze="True" />
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.ScrollButton.Default.Background" Color="{StaticResource WhiteColor}" options:Freeze="True" />
-    <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.ScrollButton.Hover.BorderBrush" Color="{StaticResource Gray2}" options:Freeze="True" />
-    <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.ScrollButton.Hover.Background" Color="{StaticResource WhiteColor}" options:Freeze="True" />
-    <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.ScrollButton.Pressed.BorderBrush" Color="{StaticResource Gray2}" options:Freeze="True" />
-    <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.ScrollButton.Pressed.Background" Color="{StaticResource Gray10}" options:Freeze="True" />
 
     <!-- ScrollBar -->
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.ScrollBar.Background" Color="{StaticResource WhiteColor}" options:Freeze="True" />
@@ -159,7 +159,7 @@
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.WindowCommands.CaptionButton.Background" Color="{StaticResource TransparentWhiteColor}" options:Freeze="True" />
     
     <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.WindowCommands.CloseButton.MouseOver.Background" Color="#E81123" options:Freeze="True" />
-    <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.WindowCommands.CloseButton.Pressed.Background" Color="#F1707A" options:Freeze="True" />
+    <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.WindowCommands.CloseButton.Pressed.Background" Color="#A92C38" options:Freeze="True" />
     
     <!-- END BRUSHES -->
 </ResourceDictionary>

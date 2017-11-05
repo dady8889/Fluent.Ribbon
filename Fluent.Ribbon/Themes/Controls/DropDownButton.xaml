@@ -33,6 +33,8 @@
                      Value="Middle">
                 <Setter Property="Height"
                         Value="22" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
             </Trigger>
             <Trigger Property="Size"
                      Value="Small">
@@ -40,6 +42,8 @@
                         Value="22" />
                 <Setter Property="Width"
                         Value="32" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -56,31 +60,29 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     Height="Auto"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     VerticalAlignment="Stretch"
                     d:LayoutOverrides="Width, Height">
-                <Grid Height="Auto">
-                    <StackPanel x:Name="stackPanel"
-                                Width="Auto"
-                                Orientation="Vertical"
-                                d:LayoutOverrides="Width, Height">
-                        <ContentPresenter x:Name="iconImage"
-                                          HorizontalAlignment="Center"
-                                          Height="32"
-                                          VerticalAlignment="Center"
-                                          Content="{Binding LargeIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static Converters:StaticConverters.ObjectToImageConverter}}"
-                                          Width="32"
-                                          Margin="3,2,3,1"
-                                          SnapsToDevicePixels="True" />
-                        <Fluent:TwoLineLabel x:Name="controlLabel"
-                                             Text="{TemplateBinding Header}"
-                                             Style="{DynamicResource TwoLineLabelStyle}"
-                                             HorizontalAlignment="Center"
-                                             VerticalAlignment="Center"
-                                             Margin="2,0,2,2"
-                                             HasGlyph="{TemplateBinding HasTriangle}" />
-                    </StackPanel>
-                </Grid>
+                <StackPanel x:Name="stackPanel"
+                            Width="Auto"
+                            Orientation="Vertical"
+                            d:LayoutOverrides="Width, Height">
+                    <ContentPresenter x:Name="iconImage"
+                                        HorizontalAlignment="Center"
+                                        Height="32"
+                                        VerticalAlignment="Center"
+                                        Content="{Binding LargeIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static Converters:StaticConverters.ObjectToImageConverter}}"
+                                        Width="32"
+                                        Margin="0 2 0 0"
+                                        SnapsToDevicePixels="True" />
+                    <Fluent:TwoLineLabel x:Name="controlLabel"
+                                            Text="{TemplateBinding Header}"
+                                            Style="{DynamicResource TwoLineLabelStyle}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            Margin="2 0 2 2"
+                                            HasGlyph="{TemplateBinding HasTriangle}" />
+                </StackPanel>
             </Border>
             <Popup x:Name="PART_Popup"
                    Placement="Bottom"

@@ -7,7 +7,7 @@
     <ControlTemplate TargetType="{x:Type Fluent:RibbonTabItem}"
                      x:Key="RibbonTabItemControlTemplate">
         <Grid x:Name="grid"
-              Background="Transparent"
+              Background="{TemplateBinding Background}"
               Height="Auto">
             <Border x:Name="border3"
                     Margin="0,0,0,1"
@@ -84,10 +84,10 @@
                     VerticalAlignment="Stretch"
                     Padding="15,0,0,0"
                     Grid.ColumnSpan="1">
-                <ContentPresenter x:Name="contentPresenter"
-                                AutomationProperties.Name="{TemplateBinding Header}"
+                <ContentControl AutomationProperties.Name="{TemplateBinding Header}"
                                 AutomationProperties.AutomationId="{TemplateBinding Name}"
-                                ContentSource="Header"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
                                 Margin="5,1,5,4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
@@ -111,7 +111,7 @@
             <Trigger Property="IsEnabled"
                      Value="False">
                 <Setter Property="Opacity"
-                        TargetName="contentPresenter"
+                        TargetName="PART_ContentContainer"
                         Value="0.5" />
             </Trigger>
             <Trigger Property="Selector.IsSelected"
@@ -201,13 +201,15 @@
                         TargetName="selectedGrid"
                         Value="Visible" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource Fluent.Ribbon.Brushes.HighlightBrush}" />
+                        Value="{Binding (Fluent:RibbonProperties.MouseOverForeground), RelativeSource={RelativeSource Self}}" />
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsMouseOver"
                                Value="True" />
                 </MultiTrigger.Conditions>
+                <Setter Property="Background"
+                        Value="{Binding (Fluent:RibbonProperties.MouseOverBackground), RelativeSource={RelativeSource Self}}" />
                 <Setter Property="Foreground"
                         Value="{Binding Group.Foreground, RelativeSource={RelativeSource Self}}" />
             </MultiTrigger>
@@ -218,8 +220,10 @@
                     <Condition Property="Group"
                                Value="{x:Null}" />
                 </MultiTrigger.Conditions>
+                <Setter Property="Background"
+                        Value="{Binding (Fluent:RibbonProperties.MouseOverBackground), RelativeSource={RelativeSource Self}}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource Fluent.Ribbon.Brushes.HighlightBrush}" />
+                        Value="{Binding (Fluent:RibbonProperties.MouseOverForeground), RelativeSource={RelativeSource Self}}" />
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -232,8 +236,10 @@
                     <Condition Property="Group"
                                Value="{x:Null}" />
                 </MultiTrigger.Conditions>
+                <Setter Property="Background"
+                        Value="{Binding (Fluent:RibbonProperties.MouseOverBackground), RelativeSource={RelativeSource Self}}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource Fluent.Ribbon.Brushes.HighlightBrush}" />
+                        Value="{Binding (Fluent:RibbonProperties.MouseOverForeground), RelativeSource={RelativeSource Self}}" />
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -271,7 +277,7 @@
                         TargetName="grid"
                         Value="Transparent" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource Fluent.Ribbon.Brushes.HighlightBrush}" />
+                        Value="{Binding (Fluent:RibbonProperties.MouseOverForeground), RelativeSource={RelativeSource Self}}" />
             </MultiTrigger>
             <Trigger Property="IsSeparatorVisible"
                      Value="True">
@@ -313,11 +319,36 @@
                 Value="{DynamicResource Fluent.Ribbon.Brushes.RibbonTabItem.Active.Background}" />
         <Setter Property="ActiveTabBorderBrush"
                 Value="{DynamicResource Fluent.Ribbon.Brushes.RibbonTabItem.BorderBrush}" />
+        <Setter Property="Fluent:RibbonProperties.MouseOverBackground"
+                Value="{DynamicResource Fluent.Ribbon.Brushes.RibbonTabItem.MouseOver.Background}" />
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Text="{Binding}"
+                               TextWrapping="NoWrap"
+                               TextTrimming="None" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Fluent:RibbonProperties.AppTheme"
+                Value="{DynamicResource Fluent.Ribbon.AppTheme}" />
         <Style.Triggers>
             <Trigger Property="Group"
                      Value="{x:Null}">
                 <Setter Property="BorderBrush"
                         Value="{DynamicResource Fluent.Ribbon.Brushes.RibbonTabItem.BorderBrush}" />
+            </Trigger>
+            <Trigger Property="Fluent:RibbonProperties.AppTheme"
+                     Value="BaseLight">
+                <Setter Property="Fluent:RibbonProperties.MouseOverForeground"
+                        Value="{DynamicResource Fluent.Ribbon.Brushes.HighlightBrush}" />
+            </Trigger>
+            <Trigger Property="Fluent:RibbonProperties.AppTheme"
+                     Value="BaseDark">
+                <Setter Property="Fluent:RibbonProperties.MouseOverForeground"
+                        Value="{DynamicResource BlackBrush}" />
             </Trigger>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>

@@ -13,14 +13,14 @@ namespace Fluent
     using Fluent.Helpers;
     using Fluent.Internal.KnownBoxes;
 
-    //using WindowChrome = ControlzEx.Microsoft.Windows.Shell.WindowChrome;
-    using WindowChrome = Microsoft.Windows.Shell.WindowChrome;
+    using WindowChrome = ControlzEx.Windows.Shell.WindowChrome;
 
     /// <summary>
     /// Represents basic window for ribbon
     /// </summary>
     [TemplatePart(Name = PART_Icon, Type = typeof(UIElement))]
     [TemplatePart(Name = PART_ContentPresenter, Type = typeof(UIElement))]
+    [TemplatePart(Name = PART_RibbonTitleBar, Type = typeof(RibbonTitleBar))]
     [TemplatePart(Name = PART_WindowCommands, Type = typeof(WindowCommands))]
     public class RibbonWindow : Window, IRibbonWindow
     {
@@ -28,6 +28,7 @@ namespace Fluent
 #pragma warning disable SA1310 // Field names must not contain underscore
         private const string PART_Icon = "PART_Icon";
         private const string PART_ContentPresenter = "PART_ContentPresenter";
+        private const string PART_RibbonTitleBar = "PART_RibbonTitleBar";
         private const string PART_WindowCommands = "PART_WindowCommands";
 #pragma warning restore SA1310 // Field names must not contain underscore
         // ReSharper restore InconsistentNaming
@@ -68,8 +69,7 @@ namespace Fluent
         /// <summary>
         /// <see cref="DependencyProperty"/> for <see cref="TitleBarHeight"/>.
         /// </summary>
-        public static readonly DependencyProperty TitleBarHeightProperty =
-            DependencyProperty.Register(nameof(TitleBarHeight), typeof(double), typeof(RibbonWindow), new PropertyMetadata(DoubleBoxes.Zero));
+        public static readonly DependencyProperty TitleBarHeightProperty = DependencyProperty.Register(nameof(TitleBarHeight), typeof(double), typeof(RibbonWindow), new PropertyMetadata(DoubleBoxes.Zero));
 
         /// <summary>
         /// Gets or sets the <see cref="Brush"/> which is used to render the window title.
@@ -83,8 +83,7 @@ namespace Fluent
         /// <summary>
         /// <see cref="DependencyProperty"/> for <see cref="TitleForeground"/>.
         /// </summary>
-        public static readonly DependencyProperty TitleForegroundProperty =
-            DependencyProperty.Register(nameof(TitleForeground), typeof(Brush), typeof(RibbonWindow), new PropertyMetadata());
+        public static readonly DependencyProperty TitleForegroundProperty = DependencyProperty.Register(nameof(TitleForeground), typeof(Brush), typeof(RibbonWindow), new PropertyMetadata());
 
         /// <summary>
         /// Gets or sets the <see cref="Brush"/> which is used to render the window title background.
@@ -98,8 +97,7 @@ namespace Fluent
         /// <summary>
         /// <see cref="DependencyProperty"/> for <see cref="TitleBackground"/>.
         /// </summary>
-        public static readonly DependencyProperty TitleBackgroundProperty =
-            DependencyProperty.Register(nameof(TitleBackground), typeof(Brush), typeof(RibbonWindow), new PropertyMetadata());
+        public static readonly DependencyProperty TitleBackgroundProperty = DependencyProperty.Register(nameof(TitleBackground), typeof(Brush), typeof(RibbonWindow), new PropertyMetadata());
 
         /// <summary>
         /// Using a DependencyProperty as the backing store for WindowCommands.  This enables animation, styling, binding, etc...
@@ -174,9 +172,7 @@ namespace Fluent
         /// Using a DependencyProperty as the backing store for IsCollapsed.
         /// This enables animation, styling, binding, etc...
         /// </summary>
-        public static readonly DependencyProperty IsCollapsedProperty =
-            DependencyProperty.Register(nameof(IsCollapsed), typeof(bool),
-            typeof(RibbonWindow), new PropertyMetadata(BooleanBoxes.FalseBox));
+        public static readonly DependencyProperty IsCollapsedProperty = DependencyProperty.Register(nameof(IsCollapsed), typeof(bool), typeof(RibbonWindow), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         /// <summary>
         /// Defines if the Ribbon should automatically set <see cref="IsCollapsed"/> when the width or height of the owner window drop under <see cref="Ribbon.MinimalVisibleWidth"/> or <see cref="Ribbon.MinimalVisibleHeight"/>
@@ -191,8 +187,7 @@ namespace Fluent
         /// Using a DependencyProperty as the backing store for IsCollapsed.
         /// This enables animation, styling, binding, etc...
         /// </summary>
-        public static readonly DependencyProperty IsAutomaticCollapseEnabledProperty =
-            DependencyProperty.Register(nameof(IsAutomaticCollapseEnabled), typeof(bool), typeof(RibbonWindow), new PropertyMetadata(BooleanBoxes.TrueBox));
+        public static readonly DependencyProperty IsAutomaticCollapseEnabledProperty = DependencyProperty.Register(nameof(IsAutomaticCollapseEnabled), typeof(bool), typeof(RibbonWindow), new PropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         /// Defines if the taskbar should be ignored and hidden while the window is maximized.
@@ -285,9 +280,10 @@ namespace Fluent
 
             this.RunInDispatcherAsync(() =>
                                       {
-                                          var availableSize = new Size(this.ActualWidth, this.ActualHeight);
-                                          this.Measure(availableSize);
-                                          this.Arrange(new Rect(default(Point), availableSize));
+                                          // Fix for #454 while also keeping #473
+                                          var availableSize = new Size(this.TitleBar.ActualWidth, this.TitleBar.ActualHeight);
+                                          this.TitleBar.Measure(availableSize);
+                                          this.TitleBar.ForceMeasureAndArrange();
                                       }, DispatcherPriority.ApplicationIdle);
         }
 
@@ -314,7 +310,7 @@ namespace Fluent
         {
             base.OnApplyTemplate();
 
-            this.TitleBar = this.GetTemplateChild("PART_RibbonTitleBar") as RibbonTitleBar;
+            this.TitleBar = this.GetTemplateChild(PART_RibbonTitleBar) as RibbonTitleBar;
 
             if (this.iconImage != null)
             {
@@ -342,6 +338,13 @@ namespace Fluent
         {
             base.OnStateChanged(e);
 
+            // todo: remove fix if we update to ControlzEx 4.0
+            if (this.WindowState == WindowState.Maximized
+                && this.SizeToContent != SizeToContent.Manual)
+            {
+                this.SizeToContent = SizeToContent.Manual;
+            }
+
             this.RunInDispatcherAsync(() => this.TitleBar?.ForceMeasureAndArrange(), DispatcherPriority.Background);
         }
 
@@ -360,7 +363,9 @@ namespace Fluent
                     {
                         e.Handled = true;
 
-                        this.Close();
+#pragma warning disable 618
+                        ControlzEx.Windows.Shell.SystemCommands.CloseWindow(this);
+#pragma warning restore 618
                     }
 
                     break;

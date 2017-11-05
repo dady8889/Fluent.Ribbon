@@ -29,7 +29,8 @@
                 <Fluent:RibbonTabControl x:Name="PART_RibbonTabControl"
                                          Menu="{TemplateBinding Menu}"                                      
                                          ContentHeight="{TemplateBinding ContentHeight}"
-                                         ContextMenu="{Binding ContextMenu, ElementName=PART_LayoutRoot}" />
+                                         ContextMenu="{Binding ContextMenu, ElementName=PART_LayoutRoot}"
+                                         IsMouseWheelScrollingEnabled="{TemplateBinding IsMouseWheelScrollingEnabled}" />
                 
                 <ContentControl x:Name="quickAccessToolBarHolder"
                             Grid.Row="1"
@@ -58,6 +59,15 @@
                 <Setter Property="Visibility"
                         TargetName="PART_RibbonTabControl"
                         Value="Collapsed" />
+                <Setter Property="Visibility"
+                        TargetName="quickAccessToolBarHolder"
+                        Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="QuickAccessToolBar"
+                     Value="{x:Null}">
+                <Setter Property="Content"
+                        TargetName="quickAccessToolBarHolder"
+                        Value="{x:Null}" />
                 <Setter Property="Visibility"
                         TargetName="quickAccessToolBarHolder"
                         Value="Collapsed" />

@@ -236,16 +236,6 @@ namespace FluentTest
             wnd.Show();
         }
 
-        private void OnPrintVisualClick(object sender, RoutedEventArgs e)
-        {
-            var printDlg = new PrintDialog();
-
-            if (printDlg.ShowDialog() == true)
-            {
-                printDlg.PrintVisual(this, "Main Window");
-            }
-        }
-
         private void AddRibbonTab_OnClick(object sender, RoutedEventArgs e)
         {
             var tab = new RibbonTabItem
@@ -308,7 +298,9 @@ namespace FluentTest
                 return;
             }
 
-            this.zoomSlider.Value += e.Delta > 0 ? 0.1 : -0.1;
+            var newZoomValue = this.zoomSlider.Value + (e.Delta > 0 ? 0.1 : -0.1);
+
+            this.zoomSlider.Value = Math.Max(Math.Min(newZoomValue, this.zoomSlider.Maximum), this.zoomSlider.Minimum);
 
             e.Handled = true;
         }

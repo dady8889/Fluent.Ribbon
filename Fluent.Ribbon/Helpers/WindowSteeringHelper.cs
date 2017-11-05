@@ -5,7 +5,7 @@
     using System.Windows;
     using System.Windows.Input;
     using ControlzEx.Native;
-    using Standard;
+    using ControlzEx.Standard;
 
     /// <summary>
     /// Class which offers helper methods for steering the window
@@ -33,6 +33,7 @@
             HandleMouseLeftButtonDown(dependencyObject, e, handleDragMove, handleStateChange);
         }
 
+#pragma warning disable 618
         /// <summary>
         /// Shows the system menu at the current mouse position.
         /// </summary>
@@ -57,7 +58,6 @@
                 // taken from DragMove internal code
                 window.VerifyAccess();
 
-#pragma warning disable 618
                 // for the touch usage
                 UnsafeNativeMethods.ReleaseCapture();
 
@@ -65,18 +65,25 @@
                 // DragMove works too, but not on maximized windows
                 NativeMethods.SendMessage(criticalHandle, WM.SYSCOMMAND, (IntPtr)SC.MOUSEMOVE, IntPtr.Zero);
                 NativeMethods.SendMessage(criticalHandle, WM.LBUTTONUP, IntPtr.Zero, IntPtr.Zero);
-#pragma warning restore 618
             }
             else if (handleStateChange
                 && e.ClickCount == 2
-                && window.ResizeMode != ResizeMode.NoResize)
+                && (window.ResizeMode == ResizeMode.CanResize || window.ResizeMode == ResizeMode.CanResizeWithGrip))
             {
                 e.Handled = true;
-                window.WindowState = window.WindowState == WindowState.Maximized
-                                         ? WindowState.Normal
-                                         : WindowState.Maximized;
+
+                if (window.WindowState == WindowState.Normal)
+                {
+                    ControlzEx.Windows.Shell.SystemCommands.MaximizeWindow(window);
+                }
+                else
+                {
+                    ControlzEx.Windows.Shell.SystemCommands.RestoreWindow(window);
+                }
             }
         }
+
+#pragma warning restore 618
 
         /// <summary>
         /// Shows the system menu at the current mouse position.
@@ -105,7 +112,7 @@
             e.Handled = true;
 
 #pragma warning disable 618
-            Microsoft.Windows.Shell.SystemCommands.ShowSystemMenu(window, e);
+            ControlzEx.Windows.Shell.SystemCommands.ShowSystemMenu(window, e);
 #pragma warning restore 618
         }
 
@@ -117,7 +124,7 @@
         public static void ShowSystemMenu(Window window, Point screenLocation)
         {
 #pragma warning disable 618
-            Microsoft.Windows.Shell.SystemCommands.ShowSystemMenu(window, screenLocation);
+            ControlzEx.Windows.Shell.SystemCommands.ShowSystemMenu(window, screenLocation);
 #pragma warning restore 618
         }
     }

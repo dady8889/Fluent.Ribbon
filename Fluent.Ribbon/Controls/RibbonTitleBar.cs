@@ -10,8 +10,7 @@ namespace Fluent
     using Fluent.Extensions;
     using Fluent.Helpers;
     using Fluent.Internal.KnownBoxes;
-    //using WindowChrome = ControlzEx.Microsoft.Windows.Shell.WindowChrome;
-    using WindowChrome = Microsoft.Windows.Shell.WindowChrome;
+    using WindowChrome = ControlzEx.Windows.Shell.WindowChrome;
 
     /// <summary>
     /// Represents title bar
@@ -54,7 +53,7 @@ namespace Fluent
         /// Using a DependencyProperty as the backing store for QuickAccessToolBar.  This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty QuickAccessToolBarProperty =
-            DependencyProperty.Register(nameof(QuickAccessToolBar), typeof(UIElement), typeof(RibbonTitleBar), new PropertyMetadata(OnQuickAccessToolbarChanged));
+            DependencyProperty.Register(nameof(QuickAccessToolBar), typeof(FrameworkElement), typeof(RibbonTitleBar), new PropertyMetadata(OnQuickAccessToolbarChanged));
 
         // Handles QuickAccessToolBar property chages
         private static void OnQuickAccessToolbarChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -183,29 +182,19 @@ namespace Fluent
             WindowSteeringHelper.HandleMouseLeftButtonDown(e, true, true);
         }
 
-        /// <summary>
-        /// Creates or identifies the element that is used to display the given item.
-        /// </summary>
-        /// <returns>The element that is used to display the given item.</returns>
+        /// <inheritdoc />
         protected override DependencyObject GetContainerForItemOverride()
         {
             return new RibbonContextualTabGroup();
         }
 
-        /// <summary>
-        /// Determines if the specified item is (or is eligible to be) its own container.
-        /// </summary>
-        /// <param name="item"> The item to check.</param>
-        /// <returns>true if the item is (or is eligible to be) its own container; otherwise, false.</returns>
+        /// <inheritdoc />
         protected override bool IsItemItsOwnContainerOverride(object item)
         {
             return item is RibbonContextualTabGroup;
         }
 
-        /// <summary>
-        /// When overridden in a derived class, is invoked whenever application code or internal processes
-        /// call System.Windows.FrameworkElement.ApplyTemplate().
-        /// </summary>
+        /// <inheritdoc />
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -224,11 +213,7 @@ namespace Fluent
             }
         }
 
-        /// <summary>
-        /// Called to remeasure a control.
-        /// </summary>
-        /// <param name="constraint">The maximum size that the method can return.</param>
-        /// <returns>The size of the control, up to the maximum specified by constraint.</returns>
+        /// <inheritdoc />
         protected override Size MeasureOverride(Size constraint)
         {
             if (this.isAtLeastOneRequiredControlPresent == false)
@@ -256,11 +241,7 @@ namespace Fluent
             return new Size(width, maxHeight);
         }
 
-        /// <summary>
-        /// Called to arrange and size the content of a System.Windows.Controls.Control object.
-        /// </summary>
-        /// <param name="arrangeBounds">The computed size that is used to arrange the content.</param>
-        /// <returns>The size of the control.</returns>
+        /// <inheritdoc />
         protected override Size ArrangeOverride(Size arrangeBounds)
         {
             if (this.isAtLeastOneRequiredControlPresent == false)

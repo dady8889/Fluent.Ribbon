@@ -12,8 +12,8 @@ namespace Fluent
     using System.Windows.Controls.Primitives;
     using System.Windows.Input;
     using System.Windows.Media;
+    using ControlzEx.Standard;
     using Fluent.Internal.KnownBoxes;
-    using Standard;
 
     /// <summary>
     /// Represents ribbon tab control
@@ -320,6 +320,20 @@ namespace Fluent
         public static readonly DependencyProperty ContentGapHeightProperty =
             DependencyProperty.Register(nameof(ContentGapHeight), typeof(double), typeof(RibbonTabControl), new PropertyMetadata(DefaultContentGapHeight));
 
+        /// <summary>
+        /// DependencyProperty for <see cref="IsMouseWheelScrollingEnabled"/>
+        /// </summary>
+        public static readonly DependencyProperty IsMouseWheelScrollingEnabledProperty = DependencyProperty.Register(nameof(IsMouseWheelScrollingEnabled), typeof(bool), typeof(RibbonTabControl), new PropertyMetadata(BooleanBoxes.TrueBox));
+
+        /// <summary>
+        /// Defines wether scrolling by mouse wheel is enabled or not.
+        /// </summary>
+        public bool IsMouseWheelScrollingEnabled
+        {
+            get { return (bool)this.GetValue(IsMouseWheelScrollingEnabledProperty); }
+            set { this.SetValue(IsMouseWheelScrollingEnabledProperty, value); }
+        }
+
         #endregion
 
         #region Initializion
@@ -504,7 +518,11 @@ namespace Fluent
         protected override void OnPreviewMouseWheel(MouseWheelEventArgs e)
         {
             //base.OnPreviewMouseWheel(e);
-            this.ProcessMouseWheel(e);
+
+            if (this.IsMouseWheelScrollingEnabled)
+            {
+                this.ProcessMouseWheel(e);
+            }
         }
 
         /// <summary>
@@ -618,12 +636,12 @@ namespace Fluent
 
 #if NET45 || NET462
             var tabs = this.ItemContainerGenerator.Items.OfType<RibbonTabItem>()
-                .Where(x => x.Visibility == Visibility.Visible && (x.IsContextual == false || (x.IsContextual && x.Group.Visibility == Visibility.Visible)))
+                .Where(x => x.Visibility == Visibility.Visible && x.IsEnabled && (x.IsContextual == false || (x.IsContextual && x.Group.Visibility == Visibility.Visible)))
                 .OrderBy(x => x.IsContextual)
                 .ToList();
 #else
             var tabs = this.Items.OfType<object>().Select(x => this.ItemContainerGenerator.ContainerFromItem(x)).OfType<RibbonTabItem>()
-                .Where(x => x.Visibility == Visibility.Visible && (x.IsContextual == false || (x.IsContextual && x.Group.Visibility == Visibility.Visible)))
+                .Where(x => x.Visibility == Visibility.Visible && x.IsEnabled && (x.IsContextual == false || (x.IsContextual && x.Group.Visibility == Visibility.Visible)))
                 .OrderBy(x => x.IsContextual)
                 .ToList();
 #endif
@@ -895,14 +913,15 @@ namespace Fluent
         /// <summary>
         /// Gets the first visible item
         /// </summary>
-        public object GetFirstVisibleItem()
+        public object GetFirstVisibleAndEnabledItem()
         {
             foreach (var item in this.Items)
             {
                 var ribbonTab = this.ItemContainerGenerator.ContainerFromItem(item) as RibbonTabItem;
 
                 if (ribbonTab != null
-                    && ribbonTab.Visibility == Visibility.Visible)
+                    && ribbonTab.Visibility == Visibility.Visible
+                    && ribbonTab.IsEnabled)
                 {
                     return ribbonTab;
                 }

@@ -17,8 +17,7 @@ namespace Fluent
     using System.Windows.Markup;
     using Fluent.Internal.KnownBoxes;
     using Fluent.Localization;
-    //using WindowChrome = ControlzEx.Microsoft.Windows.Shell.WindowChrome;
-    using WindowChrome = Microsoft.Windows.Shell.WindowChrome;
+    using WindowChrome = ControlzEx.Windows.Shell.WindowChrome;
 
     // TODO: improve style parts naming & using
 
@@ -1259,6 +1258,20 @@ namespace Fluent
             DependencyProperty.Register(nameof(CanQuickAccessLocationChanging), typeof(bool), typeof(Ribbon), new PropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
+        /// DependencyProperty for <see cref="IsMouseWheelScrollingEnabled"/>
+        /// </summary>
+        public static readonly DependencyProperty IsMouseWheelScrollingEnabledProperty = DependencyProperty.Register(nameof(IsMouseWheelScrollingEnabled), typeof(bool), typeof(Ribbon), new PropertyMetadata(BooleanBoxes.TrueBox));
+
+        /// <summary>
+        /// Defines wether scrolling by mouse wheel is enabled or not.
+        /// </summary>
+        public bool IsMouseWheelScrollingEnabled
+        {
+            get { return (bool)this.GetValue(IsMouseWheelScrollingEnabledProperty); }
+            set { this.SetValue(IsMouseWheelScrollingEnabledProperty, value); }
+        }
+
+        /// <summary>
         /// Checks if any keytips are visible.
         /// </summary>
         public bool AreAnyKeyTipsVisible
@@ -1273,6 +1286,7 @@ namespace Fluent
                 return false;
             }
         }
+
         #endregion
 
         #region Commands
@@ -1589,8 +1603,8 @@ namespace Fluent
                 this.TabControl.IsMinimized = this.IsMinimized;
                 this.TabControl.ContentGapHeight = this.ContentGapHeight;
 
-                this.TabControl.SetBinding(RibbonTabControl.IsMinimizedProperty, new Binding("IsMinimized") { Source = this, Mode = BindingMode.TwoWay });
-                this.TabControl.SetBinding(RibbonTabControl.ContentGapHeightProperty, new Binding("ContentGapHeight") { Source = this, Mode = BindingMode.OneWay });
+                this.TabControl.SetBinding(RibbonTabControl.IsMinimizedProperty, new Binding(nameof(this.IsMinimized)) { Source = this, Mode = BindingMode.TwoWay });
+                this.TabControl.SetBinding(RibbonTabControl.ContentGapHeightProperty, new Binding(nameof(this.ContentGapHeight)) { Source = this, Mode = BindingMode.OneWay });
 
                 foreach (var ribbonTabItem in this.Tabs)
                 {
@@ -1921,7 +1935,7 @@ namespace Fluent
                 && this.TabControl.SelectedIndex == -1
                 && this.TabControl.IsMinimized == false)
             {
-                this.TabControl.SelectedItem = this.TabControl.GetFirstVisibleItem();
+                this.TabControl.SelectedItem = this.TabControl.GetFirstVisibleAndEnabledItem();
             }
         }
 

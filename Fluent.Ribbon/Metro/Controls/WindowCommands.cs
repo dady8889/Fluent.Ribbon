@@ -181,7 +181,11 @@ namespace Fluent
             }
 
             var sb = new StringBuilder(256);
-            UnsafeNativeMethods.LoadString(this.user32, id, sb, sb.Capacity);
+            if (UnsafeNativeMethods.LoadString(this.user32, id, sb, sb.Capacity) == 0)
+            {
+                sb.Clear();
+                sb.AppendFormat("String with id '{0}' could not be found.", id);
+            }
 #pragma warning restore 618
             return sb.ToString().Replace("&", string.Empty);
         }
@@ -231,40 +235,55 @@ namespace Fluent
             var parentWindow = this.GetParentWindow();
             if (parentWindow != null)
             {
-                parentWindow.WindowState = WindowState.Minimized;
+#pragma warning disable 618
+                ControlzEx.Windows.Shell.SystemCommands.MinimizeWindow(parentWindow);
+#pragma warning restore 618
             }
         }
 
         private void MaximiseClick(object sender, RoutedEventArgs e)
         {
             var parentWindow = this.GetParentWindow();
-            if (parentWindow == null)
+            if (parentWindow != null)
             {
-                return;
+#pragma warning disable 618
+                ControlzEx.Windows.Shell.SystemCommands.MaximizeWindow(parentWindow);
+#pragma warning restore 618
             }
-
-            parentWindow.WindowState = WindowState.Maximized;
         }
 
         private void RestoreClick(object sender, RoutedEventArgs e)
         {
             var parentWindow = this.GetParentWindow();
-            if (parentWindow == null)
+            if (parentWindow != null)
             {
-                return;
+#pragma warning disable 618
+                ControlzEx.Windows.Shell.SystemCommands.RestoreWindow(parentWindow);
+#pragma warning restore 618
             }
-
-            parentWindow.WindowState = WindowState.Normal;
         }
 
         private void CloseClick(object sender, RoutedEventArgs e)
         {
             var parentWindow = this.GetParentWindow();
-            parentWindow?.Close();
+
+            if (parentWindow != null)
+            {
+#pragma warning disable 618
+                ControlzEx.Windows.Shell.SystemCommands.CloseWindow(parentWindow);
+#pragma warning restore 618
+            }
         }
 
         private Window GetParentWindow()
         {
+            var window = Window.GetWindow(this);
+
+            if (window != null)
+            {
+                return window;
+            }
+
             var parent = VisualTreeHelper.GetParent(this);
             Window parentWindow = null;
 

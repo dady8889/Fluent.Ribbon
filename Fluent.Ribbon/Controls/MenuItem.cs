@@ -9,6 +9,8 @@ namespace Fluent
     using System.Windows.Input;
     using System.Windows.Markup;
     using System.Windows.Media;
+    using System.Windows.Threading;
+    using Fluent.Extensions;
     using Fluent.Internal;
     using Fluent.Internal.KnownBoxes;
 
@@ -117,7 +119,7 @@ namespace Fluent
         /// Using a DependencyProperty as the backing store for Description.  This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty DescriptionProperty =
-            DependencyProperty.Register(nameof(Description), typeof(string), typeof(MenuItem), new PropertyMetadata(StringBoxes.Empty));
+            DependencyProperty.Register(nameof(Description), typeof(string), typeof(MenuItem), new PropertyMetadata(default(string)));
 
         #endregion
 
@@ -271,7 +273,7 @@ namespace Fluent
             //PopupService.Attach(type);
             ContextMenuService.Attach(type);
             DefaultStyleKeyProperty.OverrideMetadata(type, new FrameworkPropertyMetadata(type));
-            IsCheckedProperty.OverrideMetadata(type, new FrameworkPropertyMetadata(BooleanBoxes.FalseBox, ToggleButtonHelper.OnIsCheckedChanged, ToggleButtonHelper.CoerceIsChecked));
+            IsCheckedProperty.OverrideMetadata(type, new FrameworkPropertyMetadata(BooleanBoxes.FalseBox, ToggleButtonHelper.OnIsCheckedChanged));
         }
 
         /// <summary>
@@ -533,7 +535,26 @@ namespace Fluent
                 PopupService.RaiseDismissPopupEventAsync(this, DismissPopupMode.Always);
             }
 
+            var revertIsChecked = false;
+
+            // Rewriting everthing contained in base.OnClick causes a lot of trouble.
+            // In case IsCheckable is true and GroupName is not empty we revert the value for IsChecked back to true to prevent unchecking all items in the group
+            if (this.IsCheckable
+                && string.IsNullOrEmpty(this.GroupName) == false)
+            {
+                // If checked revert the IsChecked value back to true after forwarding the click to base
+                if (this.IsChecked)
+                {
+                    revertIsChecked = true;
+                }
+            }
+
             base.OnClick();
+
+            if (revertIsChecked)
+            {
+                this.RunInDispatcherAsync(() => this.SetCurrentValue(IsCheckedProperty, BooleanBoxes.TrueBox), DispatcherPriority.Background);
+            }
         }
 
         /// <summary>

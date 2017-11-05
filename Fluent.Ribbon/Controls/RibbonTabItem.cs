@@ -277,8 +277,9 @@ namespace Fluent
         }
 
         /// <summary>
-        /// Gets or sets desired width of the tab item
+        /// Gets or sets desired width of the tab item.
         /// </summary>
+        /// <remarks>This is needed in case the width of <see cref="Group"/> is larger than it's tabs.</remarks>
         internal double DesiredWidth
         {
             get { return this.desiredWidth; }
@@ -401,7 +402,7 @@ namespace Fluent
         }
 
         /// <summary>
-        /// Using a DependencyProperty as the backing store for Header.  This enables animation, styling, binding, etc...
+        /// DependencyProperty for <see cref="Header"/>.
         /// </summary>
         public static readonly DependencyProperty HeaderProperty =
             DependencyProperty.Register(nameof(Header), typeof(object), typeof(RibbonTabItem), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure, OnHeaderChanged));
@@ -412,6 +413,25 @@ namespace Fluent
             var tabItem = (RibbonTabItem)d;
             tabItem.CoerceValue(ToolTipProperty);
         }
+
+        #endregion
+
+        #region HeaderTemplate Property
+
+        /// <summary>
+        /// Gets or sets header template of tab item.
+        /// </summary>
+        public DataTemplate HeaderTemplate
+        {
+            get { return (DataTemplate)this.GetValue(HeaderTemplateProperty); }
+            set { this.SetValue(HeaderTemplateProperty, value); }
+        }
+
+        /// <summary>
+        /// DependencyProperty for <see cref="HeaderTemplate"/>.
+        /// </summary>
+        public static readonly DependencyProperty HeaderTemplateProperty =
+            DependencyProperty.Register(nameof(HeaderTemplate), typeof(DataTemplate), typeof(RibbonTabItem), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         #endregion
 
@@ -472,8 +492,10 @@ namespace Fluent
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(typeof(RibbonTabItem)));
             FocusableProperty.AddOwner(typeof(RibbonTabItem), new FrameworkPropertyMetadata(OnFocusableChanged, CoerceFocusable));
-            ToolTipProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(null, CoerceToolTip));
             VisibilityProperty.AddOwner(typeof(RibbonTabItem), new FrameworkPropertyMetadata(OnVisibilityChanged));
+
+            ToolTipProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(null, CoerceToolTip));
+            System.Windows.Controls.ToolTipService.InitialShowDelayProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(2000));
 
             KeyboardNavigation.DirectionalNavigationProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(KeyboardNavigationMode.Contained));
             KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(KeyboardNavigationMode.Local));
@@ -502,7 +524,7 @@ namespace Fluent
                     }
                     else
                     {
-                        item.TabControlParent.SelectedItem = item.TabControlParent.GetFirstVisibleItem();
+                        item.TabControlParent.SelectedItem = item.TabControlParent.GetFirstVisibleAndEnabledItem();
                     }
                 }
             }
@@ -530,7 +552,7 @@ namespace Fluent
             this.GroupsContainer.Content = this.groupsInnerContainer;
 
             // Force redirection of DataContext. This is needed, because we detach the container from the visual tree and attach it to a diffrent one (the popup/dropdown) when the ribbon is minimized.
-            this.groupsInnerContainer.SetBinding(DataContextProperty, new Binding("DataContext")
+            this.groupsInnerContainer.SetBinding(DataContextProperty, new Binding(nameof(this.DataContext))
             {
                 Source = this
             });
@@ -708,12 +730,7 @@ namespace Fluent
             this.contentContainer = this.GetTemplateChild("PART_ContentContainer") as Border;
         }
 
-        /// <summary>
-        /// Invoked when an unhandled System.Windows.UIElement.MouseLeftButtonDown routed event is raised
-        /// on this element. Implement this method to add class handling for this event.
-        /// </summary>
-        /// <param name="e">The System.Windows.Input.MouseButtonEventArgs that contains the event data.
-        /// The event data reports that the left mouse button was pressed.</param>
+        /// <inheritdoc />
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             if (ReferenceEquals(e.Source, this)
