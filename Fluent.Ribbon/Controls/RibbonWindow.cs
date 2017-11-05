@@ -208,6 +208,22 @@ namespace Fluent
         /// </summary>
         public static readonly DependencyProperty IgnoreTaskbarOnMaximizeProperty = DependencyProperty.Register(nameof(IgnoreTaskbarOnMaximize), typeof(bool), typeof(RibbonWindow), new PropertyMetadata(default(bool)));
 
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for IsCollapsed.
+        /// This enables animation, styling, binding, etc...
+        /// </summary>
+        public static readonly DependencyProperty IsWindowCommandHiddenProperty =
+                DependencyProperty.Register(nameof(IsWindowCommandHidden), typeof(bool),
+                                            typeof(RibbonWindow), new PropertyMetadata(BooleanBoxes.FalseBox));
+
+        /// <summary>
+        /// Defines if the Window Commands are hidden.
+        /// </summary>
+        public bool IsWindowCommandHidden
+        {
+            get { return (bool)this.GetValue(IsWindowCommandHiddenProperty); }
+            set { this.SetValue(IsWindowCommandHiddenProperty, value); }
+        }
         #endregion
 
         #region Constructors
