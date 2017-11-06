@@ -51,3 +51,4 @@ TestResult.xml
 paket-files/paket\.restore\.cached
 
 paket\.local
+/Fluent.Ribbon.dt

@@ -9,6 +9,9 @@
         <Grid x:Name="grid"
               Background="{TemplateBinding Background}"
               Height="Auto">
+            <Grid.ToolTip>
+                <ToolTip Content="{TemplateBinding HeaderTooltip}"/>
+            </Grid.ToolTip>
             <Border x:Name="border3"
                     Margin="0,0,0,1"
                     Grid.ColumnSpan="2">
@@ -91,7 +94,8 @@
                                 Margin="5,1,5,4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Height="Auto" />
+                                Height="Auto" 
+                                IsHitTestVisible="False" />
             </Border>
             <Grid x:Name="separatorGrid"
                   Margin="0"
@@ -108,6 +112,12 @@
             </Grid>
         </Grid>
         <ControlTemplate.Triggers>
+            <Trigger Property="HeaderTooltip"
+                     Value="{x:Null}">
+                <Setter Property="ToolTip"
+                        TargetName="grid"
+                        Value="{x:Null}"/>
+            </Trigger>
             <Trigger Property="IsEnabled"
                      Value="False">
                 <Setter Property="Opacity"
@@ -294,7 +304,7 @@
     <Style x:Key="RibbonTabItemStyle"
            TargetType="{x:Type Fluent:RibbonTabItem}">
         <Setter Property="FocusVisualStyle"
-                Value="{DynamicResource ControlStyleEmptyFocus}" />        
+                Value="{DynamicResource ControlStyleEmptyFocus}" />
         <Setter Property="HorizontalAlignment"
                 Value="Left" />
         <Setter Property="VerticalAlignment"
