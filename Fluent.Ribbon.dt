@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-16"?>
+<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT8M22.8153242S" SolutionTotalViewTime="PT23M14.757558S" SolutionTotalDebugTime="PT0S">
+  <FileVersion>
+    <Major>1</Major>
+    <Minor>0</Minor>
+  </FileVersion>
+  <SolutionFolder>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon</SolutionFolder>
+  <SessionTimeList />
+  <LastSessionTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT3.8986982S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon.dt</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-06-15T22:00:00.4957371+02:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+  </LastSessionTimeList>
+  <TotalTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT1.1711162S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\Backstage.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:06.7952044+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3.5274448S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Themes\Controls\ComboBox.xaml</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-06-15T21:59:07.759369+02:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT56.8835659S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>3</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon.dt</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2017-11-06T16:32:35.4250283+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT0.4120918S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\RadioButton.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:07.9678221+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1.198778S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\Ribbon.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:06.2502921+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT4.3500816S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\RibbonTabControl.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:09.0437867+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT7M4.0167323S" EditActiveTime="PT1M5.1169925S">
+      <ModifiedDate>2017-11-06T16:24:06.6959493+01:00</ModifiedDate>
+      <ModifiedBy>danie</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>3</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\RibbonTabItem.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:15.9171559+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT15M3.1977474S" EditActiveTime="PT7M17.6983317S">
+      <ModifiedDate>2017-11-06T17:02:30.9600684+01:00</ModifiedDate>
+      <ModifiedBy>danie</ModifiedBy>
+      <EditedCount>2</EditedCount>
+      <ViewedCount>2</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Themes\Controls\RibbonTabItem.xaml</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:24:36.4459979+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+  </TotalTimeList>
+  <HistoryTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT3.8986982S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon.dt</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-06-15T22:00:00.4957371+02:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT46.9631904S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon.dt</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-06-15T21:59:11.2868138+02:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3.5274448S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Themes\Controls\ComboBox.xaml</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2018-06-15T21:59:07.759369+02:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT6.0268462S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\RibbonTabItem.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.csproj</ProjectName>
+      <CreatedDate>2018-06-15T21:59:01.7325228+02:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT10.7788237S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>c:\users\danie\documents\visual studio 2017\projects\fluent.ribbon\fluent.ribbon\controls\RibbonTabItem.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.0.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:53:34.2112094+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT6.0226771S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon.dt</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2017-11-06T16:32:35.4250283+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT10M54.4691174S" EditActiveTime="PT6M19.4680568S">
+      <ModifiedDate>2017-11-06T17:02:30.9600684+01:00</ModifiedDate>
+      <ModifiedBy>danie</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Themes\Controls\RibbonTabItem.xaml</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:31:54.2485738+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT4M8.7301315S" EditActiveTime="PT58.2302749S">
+      <ModifiedDate>2017-11-06T16:26:38.1788471+01:00</ModifiedDate>
+      <ModifiedBy>danie</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Themes\Controls\RibbonTabItem.xaml</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:24:36.4459979+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT6M47.2110624S" EditActiveTime="PT1M5.1169925S">
+      <ModifiedDate>2017-11-06T16:24:06.6959493+01:00</ModifiedDate>
+      <ModifiedBy>danie</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\RibbonTabItem.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:15.9171559+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT4.3500816S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\RibbonTabControl.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:09.0437867+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT0.4120918S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\RadioButton.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:07.9678221+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1.1711162S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\Backstage.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:06.7952044+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1.198778S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Controls\Ribbon.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Users\danie\Documents\Visual Studio 2017\Projects\Fluent.Ribbon\Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj</ProjectName>
+      <CreatedDate>2017-11-06T16:12:06.2502921+01:00</CreatedDate>
+      <ViewedBy>danie</ViewedBy>
+    </DevTrackerDataItem>
+  </HistoryTimeList>
+</DevTrackerData>
