@@ -18,11 +18,12 @@
         <Setter Property="FocusVisualStyle"
                 Value="{DynamicResource ControlStyleEmptyFocus}" />
     </Style>
-    
+
     <ControlTemplate x:Key="RibbonComboButtonControlTemplate"
                      TargetType="{x:Type Fluent:ToggleButton}">
         <Border x:Name="border"
                 BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="0"
                 Background="{DynamicResource WhiteBrush}"
                 BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.Control.BorderBrush}"
                 Height="Auto"
@@ -133,7 +134,7 @@
                     <TextBlock Text="{TemplateBinding Header}"
                                TextWrapping="Wrap"
                                VerticalAlignment="Center"
-                               Margin="5,0,0,0"
+                               Margin="0,0,0,0"
                                x:Name="textBlock" />
                 </Grid>
             </StackPanel>
@@ -184,6 +185,8 @@
                             Width="Auto"
                             Height="Auto" />
                     <TextBox x:Name="PART_EditableTextBox"
+                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                              Focusable="True"                             
                              Style="{x:Null}"
                              HorizontalAlignment="Stretch"

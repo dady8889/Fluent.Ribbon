@@ -8,6 +8,9 @@
                      x:Key="RibbonTabItemControlTemplate">
         <Grid x:Name="grid"              
               Height="Auto">
+            <Grid.ToolTip>
+                <ToolTip Content="{TemplateBinding HeaderTooltip}"/>
+            </Grid.ToolTip>
             <Border x:Name="mouseOverBorder"
                     Margin="1,0,1,0"
                     Background="{TemplateBinding Background}" />
@@ -28,7 +31,8 @@
                     Margin="6,2,4,0"
                     VerticalAlignment="Stretch"
                     Padding="15,0,0,0">
-                <ContentControl AutomationProperties.Name="{TemplateBinding Header}"
+                <ContentControl IsHitTestVisible="False"
+                                AutomationProperties.Name="{TemplateBinding Header}"
                                 AutomationProperties.AutomationId="{TemplateBinding Name}"
                                 Content="{TemplateBinding Header}"
                                 ContentTemplate="{TemplateBinding HeaderTemplate}"
@@ -51,6 +55,12 @@
             </Grid>
         </Grid>
         <ControlTemplate.Triggers>
+            <Trigger Property="HeaderTooltip"
+                     Value="{x:Null}">
+                <Setter Property="ToolTip"
+                        TargetName="grid"
+                        Value="{x:Null}"/>
+            </Trigger>
             <Trigger Property="IsEnabled"
                      Value="False">
                 <Setter Property="Opacity"

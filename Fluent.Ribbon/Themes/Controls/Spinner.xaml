@@ -92,7 +92,7 @@
                     <TextBlock Text="{TemplateBinding Header}"
                                TextWrapping="Wrap"
                                VerticalAlignment="Center"
-                               Margin="5,0,0,0"
+                               Margin="0,0,0,0"
                                x:Name="textBlock" />
                 </Grid>
             </StackPanel>
@@ -128,6 +128,7 @@
                              SelectionBrush="{DynamicResource Fluent.Ribbon.Brushes.TextBox.SelectionBrush}"
                              Padding="2,0,2,0"
                              Margin="0"
+                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                                 
                     <Path Visibility="Collapsed"

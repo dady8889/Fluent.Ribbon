@@ -68,6 +68,15 @@
         </Grid>
 
         <ControlTemplate.Triggers>
+            <Trigger Property="IsWindowCommandHidden"
+                     Value="True">
+                <Setter Property="Opacity"
+                        TargetName="PART_WindowCommands"
+                        Value="0" />
+                <Setter Property="IsHitTestVisible"
+                        TargetName="PART_WindowCommands"
+                        Value="False" />
+            </Trigger>
             <Trigger Property="IsActive"
                      Value="False">
                 <Setter Property="Opacity"

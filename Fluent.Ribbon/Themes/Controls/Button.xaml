@@ -80,6 +80,7 @@
                 Height="Auto">
             <StackPanel x:Name="stackPanel"
                         Width="Auto"
+                        VerticalAlignment="Center"
                         Margin="{TemplateBinding Padding}"
                         Orientation="Vertical">
                 <ContentPresenter x:Name="iconImage"

@@ -253,6 +253,25 @@ namespace Fluent
 
         #endregion
 
+        #region IsDropDownAnimated
+
+        /// <summary>
+        /// Gets or sets whether the dropdown is animated
+        /// </summary>
+        public bool IsDropDownAnimated
+        {
+            get { return (bool)this.GetValue(IsDropDownAnimatedProperty); }
+            set { this.SetValue(IsDropDownAnimatedProperty, value); }
+        }
+
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for IsDropDownAnimated.  This enables animation, styling, binding, etc...
+        /// </summary>
+        public static readonly DependencyProperty IsDropDownAnimatedProperty =
+                DependencyProperty.Register(nameof(IsDropDownAnimated), typeof(bool), typeof(SplitButton), new PropertyMetadata(BooleanBoxes.TrueBox));
+
+        #endregion
+
         #endregion
 
         #region Events
@@ -437,9 +456,9 @@ namespace Fluent
         public override FrameworkElement CreateQuickAccessItem()
         {
             var buttonForQAT = new SplitButton
-                               {
-                                   CanAddButtonToQuickAccessToolBar = false
-                               };
+            {
+                CanAddButtonToQuickAccessToolBar = false
+            };
 
             buttonForQAT.Click += (sender, e) => this.RaiseEvent(e);
             buttonForQAT.DropDownOpened += this.OnQuickAccessOpened;
@@ -493,11 +512,16 @@ namespace Fluent
         /// <inheritdoc />
         public IEnumerable<KeyTipInformation> GetKeyTipInformations(bool hide)
         {
-            yield return new KeyTipInformation(this.KeyTip + "A", this.button, hide)
-                {
-                    VisualTarget = this
-                };
-            yield return new KeyTipInformation(this.KeyTip + "B", this, hide);
+            if (this.button == null)
+            {
+                this.ApplyTemplate();
+            }
+
+            yield return new KeyTipInformation(this.KeyTip, this.button, hide)
+            {
+                VisualTarget = this
+            };
+            //yield return new KeyTipInformation(this.KeyTip + "B", this, hide);
         }
 
         #endregion

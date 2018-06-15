@@ -98,6 +98,15 @@ namespace Fluent
 
         #endregion
 
+        public static readonly DependencyProperty HeaderTooltipProperty = DependencyProperty.Register(
+                                                        "HeaderTooltip", typeof(string), typeof(RibbonTabItem), new PropertyMetadata(default(string)));
+
+        public string HeaderTooltip
+        {
+            get { return (string) GetValue(HeaderTooltipProperty); }
+            set { SetValue(HeaderTooltipProperty, value); }
+        }
+
         /// <summary>
         /// Gets ribbon groups container
         /// </summary>
@@ -398,8 +407,6 @@ namespace Fluent
         // Header changed handler
         private static void OnHeaderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var tabItem = (RibbonTabItem)d;
-            tabItem.CoerceValue(ToolTipProperty);
         }
 
         #endregion
@@ -481,7 +488,6 @@ namespace Fluent
             FocusableProperty.AddOwner(typeof(RibbonTabItem), new FrameworkPropertyMetadata(OnFocusableChanged, CoerceFocusable));
             VisibilityProperty.AddOwner(typeof(RibbonTabItem), new FrameworkPropertyMetadata(OnVisibilityChanged));
 
-            ToolTipProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(null, CoerceToolTip));
             System.Windows.Controls.ToolTipService.InitialShowDelayProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(2000));
 
             KeyboardNavigation.DirectionalNavigationProperty.OverrideMetadata(typeof(RibbonTabItem), new FrameworkPropertyMetadata(KeyboardNavigationMode.Contained));
@@ -515,19 +521,6 @@ namespace Fluent
                     }
                 }
             }
-        }
-
-        // Coerce ToolTip to ensure that tooltip displays name of the tabitem
-        private static object CoerceToolTip(DependencyObject d, object basevalue)
-        {
-            var tabItem = (RibbonTabItem)d;
-            if (basevalue == null
-                && tabItem.Header is string)
-            {
-                basevalue = tabItem.Header;
-            }
-
-            return basevalue;
         }
 
         /// <summary>
