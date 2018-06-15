@@ -53,3 +53,4 @@ TestResult.xml
 
 # Allowed files
 !Fluent.Ribbon/Themes/XamlCombine.exe
+/Fluent.Ribbon.dt

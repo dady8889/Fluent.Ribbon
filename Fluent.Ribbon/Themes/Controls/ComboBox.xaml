@@ -191,7 +191,6 @@
                              Style="{x:Null}"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
-                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                              TextWrapping="NoWrap"
                              BorderThickness="0,0,0,0"
                              IsReadOnly="{TemplateBinding IsReadOnly}"                                 

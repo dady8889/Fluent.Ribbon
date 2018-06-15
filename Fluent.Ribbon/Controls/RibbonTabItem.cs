@@ -98,14 +98,21 @@ namespace Fluent
 
         #endregion
 
-        public static readonly DependencyProperty HeaderTooltipProperty = DependencyProperty.Register(
-                                                        "HeaderTooltip", typeof(string), typeof(RibbonTabItem), new PropertyMetadata(default(string)));
-
+        /// <summary>
+        /// Shows tooltip on mouseover
+        /// </summary>
         public string HeaderTooltip
         {
-            get { return (string) GetValue(HeaderTooltipProperty); }
-            set { SetValue(HeaderTooltipProperty, value); }
+            get { return (string)this.GetValue(HeaderTooltipProperty); }
+            set { this.SetValue(HeaderTooltipProperty, value); }
         }
+
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for IsMinimized.
+        /// This enables animation, styling, binding, etc...
+        /// </summary>
+        public static readonly DependencyProperty HeaderTooltipProperty = DependencyProperty.Register(
+                                                        "HeaderTooltip", typeof(string), typeof(RibbonTabItem), new PropertyMetadata(default(string)));
 
         /// <summary>
         /// Gets ribbon groups container
