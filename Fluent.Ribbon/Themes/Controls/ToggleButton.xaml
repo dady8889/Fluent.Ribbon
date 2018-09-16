@@ -11,7 +11,7 @@
         <Setter Property="Template"
                 Value="{DynamicResource RibbonToggleButtonControlTemplate}" />
         <Setter Property="Height"
-                Value="68" />
+                Value="88" />
         <Setter Property="Width"
                 Value="Auto" />
         <Setter Property="Foreground"
@@ -22,7 +22,7 @@
             <Trigger Property="Size"
                      Value="Large">
                 <Setter Property="Height"
-                        Value="68" />
+                        Value="88" />
             </Trigger>
             <Trigger Property="Size"
                      Value="Middle">
@@ -55,7 +55,8 @@
             <StackPanel x:Name="stackPanel"
                         Width="Auto"
                         Margin="{TemplateBinding Padding}"
-                        Orientation="Vertical">
+                        Orientation="Vertical"
+                        Height="66">
                 <ContentPresenter x:Name="iconImage"
                                   HorizontalAlignment="Center"
                                   Height="32"
