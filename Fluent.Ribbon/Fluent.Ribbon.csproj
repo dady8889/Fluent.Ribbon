@@ -16,6 +16,10 @@
     <EnableDefaultWpfItems>False</EnableDefaultWpfItems>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <Target Name="GenerateXamlFiles" BeforeTargets="BeforeBuild">
